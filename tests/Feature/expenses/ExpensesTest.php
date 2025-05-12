@@ -1,18 +1,18 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\expenses;
 
 // use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class ExampleTest extends TestCase
+class ExpensesTest extends TestCase
 {
     /**
      * A basic test example.
      */
-    public function test_the_application_returns_a_successful_response(): void
+    public function test_index(): void
     {
-        $response = $this->get('/');
+        $response = $this->get('/expenses');
 
         $response->assertStatus(200);
     }
