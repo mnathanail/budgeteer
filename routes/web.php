@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\expenses\ExpenseController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
+Route::prefix('/expenses')->name('expenses.')->group(function () {
+    Route::get('/', [ExpenseController::class, 'index'])->name('index');
 });
