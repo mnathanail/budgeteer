@@ -52,7 +52,7 @@ class Expense
         return [
             'name' => $this->getName()->toString(),
             'type' => $this->getType()->value,
-            'price' => $this->getCost()->toString(),
+            'cost' => $this->getCost()->toString(),
             'date' => $this->getDate()->format('Y-m-d'),
         ];
     }
