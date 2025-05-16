@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\expenses\ExpenseController;
+use App\Expense\Infrastructure\Controller\ExpenseController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('/expenses')->name('expenses.')->group(function () {
