@@ -15,6 +15,7 @@ return new class extends Migration {
             $table->string('name')->nullable(false);
             $table->string('type')->nullable(false);
             $table->string('cost')->nullable(false);
+            $table->string('date')->nullable(false);
             $table->timestamps();
         });
     }
