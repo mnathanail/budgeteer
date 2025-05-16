@@ -22,7 +22,7 @@ class ExpenseFactory extends Factory
     public function definition(): array
     {
         return [
-            'uuid' => Uuid::fromString($this->faker->uuid()),
+            'expense_id' => Uuid::fromString($this->faker->uuid()),
             'name' => Name::fromString($this->faker->word()),
             'type' => '',
             'cost' => Cost::fromString((string)$this->faker->randomFloat(3)),
