@@ -10,7 +10,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('expense', function (Blueprint $table) {
+        Schema::create('expenses', function (Blueprint $table) {
             $table->uuid('expense_id')->nullable(false);
             $table->string('name')->nullable(false);
             $table->string('type')->nullable(false);
