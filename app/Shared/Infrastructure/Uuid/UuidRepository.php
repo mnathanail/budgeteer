@@ -4,7 +4,7 @@ namespace App\Shared\Infrastructure\Uuid;
 
 use App\Shared\Application\Uuid\UuidRepositoryInterface;
 use App\Shared\Domain\Uuid;
-use Ramsey\Uuid\Nonstandard\Uuid as RandomUuid;
+use Ramsey\Uuid\Uuid as RandomUuid;
 
 class UuidRepository implements UuidRepositoryInterface
 {
