@@ -11,12 +11,11 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('expenses', function (Blueprint $table) {
-            $table->uuid('expense_id')->primary()->nullable(false);
-            $table->string('name')->nullable(false);
-            $table->string('type')->nullable(false);
-            $table->string('cost')->nullable(false);
-            $table->date('date')->nullable(false);
-            $table->timestamps();
+            $table->uuid('expense_id')->primary();
+            $table->string('name');
+            $table->string('type');
+            $table->string('cost');
+            $table->date('date');
         });
     }
 
