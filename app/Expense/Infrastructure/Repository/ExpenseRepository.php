@@ -9,15 +9,14 @@ use App\Shared\Application\Uuid\UuidRepositoryInterface;
 use App\Shared\Domain\ExpenseId;
 use Illuminate\Database\Eloquent\Builder;
 
-class ExpenseRepository implements ExpenseRepositoryInterface
+readonly class ExpenseRepository implements ExpenseRepositoryInterface
 {
+    private Builder $builder;
     public function __construct(
-        private readonly UuidRepositoryInterface $uuidRepository,
-        private Builder $builder
+        private UuidRepositoryInterface $uuidRepository,
     ) {
         $this->builder = ExpenseEntity::query();
     }
-
     public function save(Expense $expense): void
     {
         $this->builder->create($expense->toDatabase());
