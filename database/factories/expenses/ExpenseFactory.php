@@ -2,8 +2,10 @@
 
 namespace Database\Factories\expenses;
 
+use App\Expense\Domain\Entity\Expense;
 use App\Expense\Domain\Enum\ExpenseType;
 use App\Expense\Infrastructure\Eloquent\ExpenseEntity;
+use App\Shared\Domain\ExpenseId;
 use App\Shared\Domain\Uuid;
 use App\Shared\Domain\ValueObject\Cost;
 use App\Shared\Domain\ValueObject\Name;
@@ -22,12 +24,14 @@ class ExpenseFactory extends Factory
      */
     public function definition(): array
     {
-        return [
-            'expense_id' => Uuid::fromString($this->faker->uuid()),
-            'name' => Name::fromString($this->faker->word()),
-            'type' => $this->faker->randomElement(\array_map(fn(ExpenseType $et) => $et->value, ExpenseType::cases())),
-            'cost' => Cost::fromString((string)$this->faker->randomFloat(3, 0.001, 1000)),
-            'date' => (new DateTimeImmutable())->format('d-m-Y'),
-        ];
+        $expense = new Expense(
+            expenseId: ExpenseId::fromString($this->faker->uuid()),
+            name: Name::fromString($this->faker->word()),
+            type: $this->faker->randomElement(ExpenseType::cases()),
+            cost: Cost::fromString((string)$this->faker->randomFloat(3, 0.001, 1000)),
+            date: new DateTimeImmutable()
+        );
+
+        return $expense->toDatabase();
     }
 }

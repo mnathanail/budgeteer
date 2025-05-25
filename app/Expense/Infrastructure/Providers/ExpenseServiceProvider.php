@@ -10,8 +10,8 @@ class ExpenseServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->bind(
-            'App\\Expense\\Domain\\Interface\\ExpenseRepositoryInterface',
-            'App\\Expense\\Infrastructure\\Repository\\ExpenseRepository'
+            'App\Expense\Domain\Interface\ExpenseRepositoryInterface::class',
+            'App\Expense\Infrastructure\Repository\ExpenseRepository::class'
         );
 
     }
