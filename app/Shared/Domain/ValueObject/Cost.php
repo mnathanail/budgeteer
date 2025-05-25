@@ -9,7 +9,7 @@ final readonly class Cost
     public function __construct(
         private string $cost,
     ) {
-        Assertion::greaterThan((float)$cost, 0, 'Cost cannot be negative');
+        Assertion::greaterThan((float)$cost, 0, 'Cost must be greater than zero');
     }
 
     public static function fromString(string $cost): self
